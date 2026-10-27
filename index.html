@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>For Dhanashri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f0ff;
+      --ink: #2a1f4d;
+      --soft: #6a5d94;
+      --purple: #7b4dd6;
+      --sky: #6ec3f4;
+      --card: #ffffff;
+      --line: #d9cff5;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    @media (prefers-color-scheme:dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #171132;
+        --ink: #f1ecff;
+        --soft: #b3a6dd;
+        --card: #241a4a;
+        --line: #3b2d73
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #171132;
+      --ink: #f1ecff;
+      --soft: #b3a6dd;
+      --card: #241a4a;
+      --line: #3b2d73
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px);
+      scroll-behavior: smooth
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Nunito, system-ui, sans-serif;
+      line-height: 1.65;
+      font-size: 17px
+    }
+
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 48px 20px 180px;
+      background: linear-gradient(180deg, #9b7be8 0%, #b9a4f2 40%, #bfe3fb 100%);
+      color: #fff;
+      overflow: hidden
+    }
+
+    .hero h1 {
+      font-family: Caveat, cursive;
+      font-size: clamp(64px, 17vw, 148px);
+      line-height: 1;
+      margin: 0;
+      text-shadow: 0 4px 24px rgba(60, 30, 130, .35)
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      font-size: 19px;
+      max-width: 30ch;
+      text-shadow: 0 2px 12px rgba(60, 30, 130, .4)
+    }
+
+    .hero svg {
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 100%;
+      height: auto;
+      display: block
+    }
+
+    .sun {
+      position: absolute;
+      top: 12%;
+      right: 14%;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #fff6;
+      box-shadow: 0 0 60px 20px #fff5
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 20px 40px
+    }
+
+    h2 {
+      font-family: Caveat, cursive;
+      font-size: 44px;
+      margin: 0 0 8px;
+      color: var(--purple)
+    }
+
+    section {
+      margin-bottom: 68px
+    }
+
+    .lead {
+      color: var(--soft);
+      margin: 0 0 22px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .chip {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--card);
+      border: 2px solid var(--line);
+      font-weight: 600
+    }
+
+    .chip:nth-child(odd) {
+      border-color: var(--purple)
+    }
+
+    .chip:nth-child(even) {
+      border-color: var(--sky)
+    }
+
+    .pick {
+      border: 0;
+      border-radius: 18px;
+      padding: 14px 22px;
+      font: 800 17px Nunito, sans-serif;
+      color: #fff;
+      background: linear-gradient(90deg, var(--purple), #5aa9ee);
+      cursor: pointer
+    }
+
+    .pick:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--sky);
+      outline-offset: 3px
+    }
+
+    .now {
+      min-height: 2.4em;
+      margin: 16px 0;
+      font-family: Caveat, cursive;
+      font-size: 32px;
+      color: var(--ink)
+    }
+
+    ul.songs {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px
+    }
+
+    ul.songs li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 16px
+    }
+
+    ul.songs li.hit {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px #7b4dd633
+    }
+
+    ul.songs a {
+      color: var(--purple);
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap
+    }
+
+    .food {
+      background: var(--card);
+      border: 2px dashed var(--sky);
+      border-radius: 22px;
+      padding: 24px
+    }
+
+    .food b {
+      color: var(--purple)
+    }
+
+    .trail {
+      position: relative;
+      margin: 26px 0 0;
+      padding-left: 28px;
+      border-left: 3px dotted var(--sky)
+    }
+
+    .trail p {
+      margin: 0 0 20px;
+      position: relative
+    }
+
+    .trail p::before {
+      content: "";
+      position: absolute;
+      left: -37px;
+      top: 8px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--purple);
+      border: 3px solid var(--bg)
+    }
+
+    .old {
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 28px;
+      background: linear-gradient(160deg, #7b4dd6, #5aa9ee);
+      color: #fff
+    }
+
+    .old h2 {
+      color: #fff;
+      font-size: 52px
+    }
+
+    .ages {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 18px 0;
+      font-family: Caveat, cursive;
+      font-size: 30px
+    }
+
+    .ages span {
+      background: #ffffff26;
+      border-radius: 14px;
+      padding: 2px 16px
+    }
+
+    footer {
+      text-align: center;
+      color: var(--soft);
+      padding: 10px 20px 50px;
+      font-family: Caveat, cursive;
+      font-size: 26px
+    }
+
+    .heart {
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      transition: transform .2s
+    }
+
+    .heart:active {
+      transform: scale(1.6)
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .sun {
+        animation: glow 5s ease-in-out infinite alternate
+      }
+
+      @keyframes glow {
+        to {
+          box-shadow: 0 0 80px 34px #fff6
+        }
+      }
+    }
+
+    .fl {
+      position: absolute;
+      bottom: -40px;
+      pointer-events: none;
+      opacity: .85;
+      z-index: 1
+    }
+
+    .ask {
+      text-align: center;
+      margin-top: 56px;
+      padding: 44px 20px;
+      border-radius: 28px;
+      background: var(--card);
+      border: 3px solid var(--purple);
+      box-shadow: 0 10px 40px #7b4dd62e
+    }
+
+    .ask h2 {
+      font-size: clamp(34px, 8vw, 52px);
+      line-height: 1.15;
+      color: var(--ink)
+    }
+
+    .ask .big {
+      font-size: 60px;
+      line-height: 1
+    }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      min-height: 90px;
+      margin-top: 22px;
+      flex-wrap: wrap
+    }
+
+    #yes {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 34px;
+      font: 800 22px Nunito, sans-serif;
+      color: #fff;
+      background: linear-gradient(90deg, var(--purple), #5aa9ee);
+      cursor: pointer;
+      box-shadow: 0 6px 20px #7b4dd655;
+      transition: font-size .2s, padding .2s
+    }
+
+    #no {
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 26px;
+      font: 700 18px Nunito, sans-serif;
+      color: var(--soft);
+      background: var(--bg);
+      cursor: pointer;
+      z-index: 50;
+      transition: left .25s, top .25s
+    }
+
+    #yes:focus-visible,
+    #no:focus-visible {
+      outline: 3px solid var(--sky);
+      outline-offset: 3px
+    }
+
+    #win {
+      display: none
+    }
+
+    #win .big {
+      font-size: 72px
+    }
+
+    .fall {
+      position: fixed;
+      top: -40px;
+      z-index: 60;
+      pointer-events: none
+    }
+
+    .fl,
+    .fall {
+      will-change: transform
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .fl {
+        animation: rise linear infinite
+      }
+
+      @keyframes rise {
+        to {
+          transform: translateY(-95vh) rotate(25deg);
+          opacity: 0
+        }
+      }
+
+      .fall {
+        animation: drop linear forwards
+      }
+
+      @keyframes drop {
+        to {
+          transform: translateY(110vh) rotate(40deg)
+        }
+      }
+
+      .ask .big {
+        animation: beat 1.4s ease-in-out infinite
+      }
+
+      @keyframes beat {
+        50% {
+          transform: scale(1.18)
+        }
+      }
+    }
+
+    .chap {
+      border-radius: 26px;
+      overflow: hidden;
+      background: var(--card);
+      border: 2px solid var(--line);
+      box-shadow: 0 10px 36px #7b4dd62e
+    }
+
+    .chap svg {
+      display: block;
+      width: 100%;
+      height: auto
+    }
+
+    .txt {
+      padding: 14px 22px 20px
+    }
+
+    .txt h3 {
+      font-family: Caveat, cursive;
+      font-size: 38px;
+      line-height: 1.1;
+      margin: 0 0 4px;
+      color: var(--purple)
+    }
+
+    .txt p {
+      margin: 0;
+      color: var(--soft)
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--purple), #5aa9ee);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px
+    }
+
+    .leg {
+      height: 44px;
+      width: 0;
+      margin: 0 auto;
+      border-left: 3px dotted var(--sky)
+    }
+
+    .us {
+      transform: translateX(-46px);
+      opacity: 0;
+      transition: transform 2s ease, opacity 1.2s
+    }
+
+    .vis .us {
+      transform: none;
+      opacity: 1
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .us {
+        transform: none;
+        opacity: 1;
+        transition: none
+      }
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .cloud {
+        animation: dr 30s ease-in-out infinite alternate
+      }
+
+      @keyframes dr {
+        to {
+          transform: translateX(26px)
+        }
+      }
+
+      .steam {
+        animation: st 3s ease-in-out infinite
+      }
+
+      @keyframes st {
+        50% {
+          transform: translateY(-5px);
+          opacity: .5
+        }
+      }
+
+      .note {
+        animation: nt 4s ease-in-out infinite
+      }
+
+      .n2 {
+        animation-delay: -1s
+      }
+
+      .n3 {
+        animation-delay: -2s
+      }
+
+      .n4 {
+        animation-delay: -3s
+      }
+
+      @keyframes nt {
+        50% {
+          transform: translateY(-12px)
+        }
+      }
+
+      .ff {
+        animation: fi 3s ease-in-out infinite
+      }
+
+      .f2 {
+        animation-delay: -1s
+      }
+
+      .f3 {
+        animation-delay: -2s
+      }
+
+      @keyframes fi {
+        50% {
+          opacity: .15;
+          transform: translateY(-8px)
+        }
+      }
+    }
+
+    .mr {
+      margin: 8px 0 0;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--purple)
+    }
+
+    .q {
+      background: var(--card);
+      border: 2px solid var(--line);
+      border-left: 7px solid var(--purple);
+      border-radius: 18px;
+      padding: 16px 20px;
+      margin-bottom: 14px
+    }
+
+    .q b {
+      display: block;
+      font-family: Caveat, cursive;
+      font-size: 32px;
+      line-height: 1.15
+    }
+
+    .q small {
+      color: var(--soft)
+    }
+
+    .ask {
+      position: relative
+    }
+
+    .sh {
+      animation: none
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .sh {
+        animation: shl 2.4s ease-in-out infinite alternate
+      }
+
+      @keyframes shl {
+        0% {
+          transform: translate(0, 0)
+        }
+
+        50% {
+          transform: translate(80px, -48px)
+        }
+
+        100% {
+          transform: translate(160px, 0)
+        }
+      }
+
+      .sway {
+        transform-box: fill-box;
+        transform-origin: 50% 100%;
+        animation: sw 2.6s ease-in-out infinite
+      }
+
+      @keyframes sw {
+
+        0%,
+        100% {
+          transform: rotate(-4deg)
+        }
+
+        50% {
+          transform: rotate(4deg) translateY(-3px)
+        }
+      }
+    }
+
+    details.letter {
+      margin-bottom: 12px;
+      background: var(--card);
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden
+    }
+
+    details.letter[open] {
+      border-color: var(--purple);
+      box-shadow: 0 8px 26px #7b4dd62e
+    }
+
+    .letter summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 20px;
+      font-family: Caveat, cursive;
+      font-size: 29px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .letter summary::-webkit-details-marker {
+      display: none
+    }
+
+    .letter summary::before {
+      content: "\1F48C";
+      font-size: 26px
+    }
+
+    .letter[open] summary::before {
+      content: "\1F49C"
+    }
+
+    .letter summary:focus-visible {
+      outline: 3px solid var(--sky);
+      outline-offset: -3px
+    }
+
+    .paper {
+      padding: 12px 22px 20px;
+      border-top: 2px dashed var(--line)
+    }
+
+    .paper p {
+      margin: 0
+    }
+
+    .env {
+      position: relative;
+      margin-bottom: 16px
+    }
+
+    .eb {
+      display: block;
+      width: 100%;
+      border: 0;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+      perspective: 700px;
+      border-radius: 18px
+    }
+
+    .eb:focus-visible {
+      outline: 3px solid var(--sky);
+      outline-offset: 4px
+    }
+
+    .ebody {
+      position: relative;
+      display: block;
+      height: 112px;
+      border-radius: 18px;
+      background: linear-gradient(160deg, #8a63dc, #5aa9ee);
+      box-shadow: 0 8px 22px #7b4dd640;
+      overflow: hidden
+    }
+
+    .flap {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 64px;
+      background: #6d47c9;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transition: transform .6s ease, opacity .6s ease
+    }
+
+    .seal {
+      position: absolute;
+      left: 50%;
+      top: 34px;
+      transform: translateX(-50%);
+      font-size: 24px;
+      transition: transform .4s, opacity .4s
+    }
+
+    .lbl {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 12px;
+      text-align: center;
+      font-family: Caveat, cursive;
+      font-size: 29px;
+      color: #fff
+    }
+
+    .env.open .flap {
+      transform: rotateX(180deg);
+      opacity: 0
+    }
+
+    .env.open .seal {
+      transform: translateX(-50%) scale(1.6);
+      opacity: 0
+    }
+
+    .lw {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .6s ease
+    }
+
+    .lw>div {
+      overflow: hidden
+    }
+
+    .env.open .lw {
+      grid-template-rows: 1fr
+    }
+
+    .paper {
+      margin-top: 10px;
+      padding: 18px 22px;
+      background: var(--card);
+      border: 2px solid var(--purple);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px #7b4dd62e;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .5s .25s, transform .5s .25s
+    }
+
+    .env.open .paper {
+      opacity: 1;
+      transform: none
+    }
+
+    .paper p {
+      margin: 0
+    }
+
+    .sig {
+      margin-top: 10px !important;
+      font-family: Caveat, cursive;
+      font-size: 28px;
+      color: var(--purple)
+    }
+
+    .bh {
+      position: absolute;
+      left: 50%;
+      top: 50px;
+      font-size: 20px;
+      pointer-events: none;
+      z-index: 5
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .bh {
+        animation: bh 1.3s ease-out forwards
+      }
+
+      @keyframes bh {
+        to {
+          transform: translate(var(--dx), var(--dy)) scale(1.4);
+          opacity: 0
+        }
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      .flap,
+      .seal,
+      .lw,
+      .paper {
+        transition: none
+      }
+
+      .bh {
+        display: none
+      }
+    }
+
+    .hero .msg {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+      width: 100%;
+      margin-top: 22px;
+      padding: 20px 22px 10px;
+      border-radius: 24px;
+      background: rgba(60, 30, 130, .3);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-align: center
+    }
+
+    .hero .msg p {
+      max-width: none;
+      margin: 0 0 12px;
+      font-size: 17px;
+      line-height: 1.7;
+      text-shadow: 0 1px 8px rgba(40, 20, 100, .5)
+    }
+
+    .hero .msg {
+      background: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 0;
+      border-radius: 0
+    }
+
+    .hero .msg p {
+      text-shadow: 0 1px 12px rgba(50, 25, 120, .75)
+    }
+
+    .chap {
+      background: none;
+      border: 0;
+      box-shadow: none;
+      border-radius: 0;
+      overflow: visible
+    }
+
+    .chap svg {
+      border-radius: 30px
+    }
+
+    .txt {
+      padding: 16px 6px 6px;
+      text-align: center
+    }
+
+    .paper {
+      background: none;
+      border: 0;
+      box-shadow: none;
+      padding: 16px 6px 8px;
+      text-align: center
+    }
+
+    .ask {
+      background: none;
+      border: 0;
+      box-shadow: none
+    }
+
+    .old {
+      background: none;
+      color: var(--ink)
+    }
+
+    .old h2 {
+      color: var(--purple)
+    }
+
+    .ages span {
+      background: var(--line)
+    }
+
+    .peek {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin-top: 22px;
+      color: #fff;
+      font-family: Caveat, cursive;
+      font-size: 32px;
+      text-decoration: underline;
+      text-underline-offset: 7px;
+      text-shadow: 0 2px 12px rgba(50, 25, 120, .6)
+    }
+
+    .qq {
+      font-family: Caveat, cursive;
+      font-size: 36px;
+      margin: 0 0 12px;
+      text-align: center;
+      line-height: 1.15
+    }
+
+    .qrow {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    #fans {
+      flex: 1 1 200px;
+      max-width: 320px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--line);
+      background: var(--bg);
+      color: var(--ink);
+      font: 600 17px Nunito, sans-serif;
+      text-align: center
+    }
+
+    #fans:focus-visible {
+      outline: 3px solid var(--sky);
+      outline-offset: 2px;
+      border-color: var(--purple)
+    }
+
+    .fmsg {
+      text-align: center;
+      min-height: 1.7em;
+      margin: 12px 0 18px;
+      color: var(--purple);
+      font-weight: 800
+    }
+
+    .quiz.done .qrow,
+    .quiz.done .qq {
+      display: none
+    }
+
+    .big .ebody {
+      height: 150px;
+      perspective: 700px
+    }
+
+    .big .flap {
+      height: 86px
+    }
+
+    .big .seal {
+      top: 46px;
+      font-size: 34px
+    }
+
+    .big .lbl {
+      font-size: 38px;
+      bottom: 16px
+    }
+
+    .msgp p {
+      margin: 0 0 14px;
+      font-size: 17px;
+      line-height: 1.8
+    }
+
+    .msgp .sig {
+      margin: 6px 0 0 !important
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .shake {
+        animation: shk .45s
+      }
+
+      @keyframes shk {
+
+        0%,
+        100% {
+          transform: none
+        }
+
+        25% {
+          transform: translateX(-9px) rotate(-1deg)
+        }
+
+        75% {
+          transform: translateX(9px) rotate(1deg)
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="sun" aria-hidden="true"></div>
+    <div id="floaters" aria-hidden="true"></div>
+    <h1>Dhanashri</h1>
+    <p>a little corner of the internet, made only for you 💜</p><a href="#letter" id="peek" class="peek">A letter is
+      waiting for you &#128140;</a>
+    <svg viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 260V150l140-90 120 80 150-120 170 140 130-90 160 110 140-80 190 100v160z" fill="#8e6fe0"
+        opacity=".55" />
+      <path d="M0 260V190l180-100 140 90 150-110 200 130 160-80 150 90 220-110v160z" fill="#6d47c9" opacity=".8" />
+      <path d="M0 260V220l200-70 180 70 200-90 220 90 180-60 220 80v10z" fill="var(--bg)" />
+    </svg>
+  </header>
+
+  <main>
+    <section id="letter">
+      <h2>A letter for you</h2>
+      <p class="lead">Before I open it, one little question, Dhanashri. Tujhyasathi ek prashna.</p>
+      <div class="quiz" id="quiz">
+        <p class="qq">Which is our favourite destination?</p>
+        <div class="qrow"><input id="fans" type="text" placeholder="Type the place&hellip;" autocomplete="off"
+            aria-label="Our favourite destination"><button class="pick" id="fgo">Open the letter</button></div>
+      </div>
+      <p id="fmsg" class="fmsg" aria-live="polite"></p>
+      <div class="env big" id="fenv">
+        <div class="ebody"><span class="flap"></span><span class="seal">&#128274;</span><span class="lbl">For
+            Dhanashri</span></div>
+        <div class="lw">
+          <div>
+            <div class="paper msgp">
+              <p>I don&rsquo;t think words will ever be enough to explain how much you mean to me. But if I could turn
+                all my love, all my care, and all the little things I adore about you into something, it would look a
+                little like this place.</p>
+              <p>Every colour, every tiny heart, every sparkle is here to remind you that you are loved more than you
+                know. I hope life is always gentle with your heart. I hope you never forget how beautiful your soul is.
+                And whenever the world feels a little too heavy, I hope you remember that you have someone who will
+                always be cheering for you, believing in you, and wishing the sweetest things for you.</p>
+              <p>You are precious to me, Dhanashri. Today, tomorrow, and in all the little moments in between. &#128156;
+              </p>
+              <p class="sig">Tujha, Mahesh &#128156;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Our journey</h2>
+      <p class="lead">Walk with us, from where it started to someday.</p>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <linearGradient id="gd" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#6fb9f2" />
+            <stop offset="1" stop-color="#e6f5ff" />
+          </linearGradient>
+          <linearGradient id="gm" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8a63dc" />
+            <stop offset=".7" stop-color="#bfe3fb" />
+            <stop offset="1" stop-color="#fff0f7" />
+          </linearGradient>
+          <linearGradient id="gv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a1a6e" />
+            <stop offset=".65" stop-color="#7b4dd6" />
+            <stop offset="1" stop-color="#f2a6d6" />
+          </linearGradient>
+          <symbol id="cl" viewBox="0 0 120 50">
+            <ellipse cx="60" cy="38" rx="56" ry="11" fill="#dbeeff" />
+            <g fill="#fff">
+              <ellipse cx="38" cy="30" rx="26" ry="16" />
+              <ellipse cx="68" cy="22" rx="28" ry="18" />
+              <ellipse cx="92" cy="32" rx="22" ry="12" />
+            </g>
+          </symbol>
+          <symbol id="us" viewBox="0 0 44 60">
+            <circle cx="12" cy="10" r="6" fill="#f6d3b8" />
+            <path d="M6 9a6 6 0 0 1 12 0c-3-3-9-3-12 0Z" fill="#2a1f4d" />
+            <path d="M6 18h12l2 20H4z" fill="#5aa9ee" />
+            <path d="M6 38h5v20H6zM13 38h5v20h-5z" fill="#2a1f4d" />
+            <circle cx="32" cy="12" r="5.5" fill="#f6d3b8" />
+            <path d="M26 12a6 6 0 0 1 12 0v15h-3V14h-6v13h-3z" fill="#2a1f4d" />
+            <path d="M32 19l-9 28h18z" fill="#7b4dd6" />
+            <path d="M29 47h3v11h-3zM33 47h3v11h-3z" fill="#f6d3b8" />
+            <path d="M19 26l7 3" stroke="#f6d3b8" stroke-width="3" stroke-linecap="round" />
+          </symbol>
+          <symbol id="sf" viewBox="0 0 40 64">
+            <g fill="#ffc933">
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(0 20 20)" />
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(45 20 20)" />
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(90 20 20)" />
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(135 20 20)" />
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(180 20 20)" />
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(225 20 20)" />
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(270 20 20)" />
+              <ellipse cx="20" cy="7" rx="4" ry="7" transform="rotate(315 20 20)" />
+            </g>
+            <circle cx="20" cy="20" r="6.5" fill="#7a4a2a" />
+            <circle cx="18" cy="18" r="1.2" fill="#a8703f" />
+            <circle cx="22" cy="22" r="1.2" fill="#a8703f" />
+            <rect x="19" y="34" width="3" height="30" fill="#4f9f5f" />
+            <path d="M21 52q12-4 14-13q-12 0-14 13Z" fill="#5fb98a" />
+          </symbol>
+          <symbol id="rs" viewBox="0 0 40 64">
+            <circle cx="20" cy="20" r="13" fill="#e8559a" />
+            <path d="M20 20m-3 0a3 3 0 1 1 6 0a6 6 0 1 1-12 0a9 9 0 1 1 18 0" stroke="#a82a6a" stroke-width="2"
+              fill="none" stroke-linecap="round" />
+            <path d="M11 30l9 7 9-7-4 9h-10z" fill="#4f9f5f" />
+            <rect x="19" y="34" width="3" height="30" fill="#4f9f5f" />
+            <path d="M21 52q12-4 14-13q-12 0-14 13Z" fill="#5fb98a" />
+          </symbol>
+          <symbol id="ly" viewBox="0 0 40 64">
+            <g fill="#fff5fb" stroke="#e58fc2" stroke-width="1">
+              <path d="M20 20C13 12 16 3 20 0C24 3 27 12 20 20Z" transform="rotate(0 20 20)" />
+              <path d="M20 20C13 12 16 3 20 0C24 3 27 12 20 20Z" transform="rotate(60 20 20)" />
+              <path d="M20 20C13 12 16 3 20 0C24 3 27 12 20 20Z" transform="rotate(120 20 20)" />
+              <path d="M20 20C13 12 16 3 20 0C24 3 27 12 20 20Z" transform="rotate(180 20 20)" />
+              <path d="M20 20C13 12 16 3 20 0C24 3 27 12 20 20Z" transform="rotate(240 20 20)" />
+              <path d="M20 20C13 12 16 3 20 0C24 3 27 12 20 20Z" transform="rotate(300 20 20)" />
+            </g>
+            <g stroke="#e58fc2" stroke-width="1.2">
+              <path d="M20 20l-5-7M20 20l5-7M20 20v-9" />
+            </g>
+            <g fill="#ffb347">
+              <circle cx="15" cy="13" r="1.6" />
+              <circle cx="25" cy="13" r="1.6" />
+              <circle cx="20" cy="11" r="1.6" />
+            </g>
+            <rect x="19" y="34" width="3" height="30" fill="#4f9f5f" />
+            <path d="M21 52q12-4 14-13q-12 0-14 13Z" fill="#5fb98a" />
+          </symbol>
+          <symbol id="lt" viewBox="0 0 60 40">
+            <ellipse cx="30" cy="35" rx="27" ry="5" fill="#4fae7e" />
+            <g stroke="#e58fc2" stroke-width="1">
+              <path d="M30 33C22 26 22 14 30 6C38 14 38 26 30 33Z" fill="#e58fd0" transform="rotate(-62 30 33)" />
+              <path d="M30 33C22 26 22 14 30 6C38 14 38 26 30 33Z" fill="#e58fd0" transform="rotate(62 30 33)" />
+              <path d="M30 33C22 26 22 14 30 6C38 14 38 26 30 33Z" fill="#f7a8dc" transform="rotate(-32 30 33)" />
+              <path d="M30 33C22 26 22 14 30 6C38 14 38 26 30 33Z" fill="#f7a8dc" transform="rotate(32 30 33)" />
+              <path d="M30 33C22 26 22 14 30 6C38 14 38 26 30 33Z" fill="#ffd3ec" />
+            </g>
+            <circle cx="30" cy="27" r="2.5" fill="#ffc933" />
+          </symbol>
+          <symbol id="pr" viewBox="0 0 24 60">
+            <circle cx="12" cy="9" r="6" fill="#f6d3b8" />
+            <path d="M5 9a7 7 0 0 1 14 0c-4-3-10-3-14 0Z" fill="#2a1f4d" />
+            <path d="M12 17l-8 25h16z" fill="currentColor" />
+            <path d="M7 42h4v17H7zM13 42h4v17h-4z" fill="#2a1f4d" />
+          </symbol>
+        </defs>
+      </svg>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="Where it starts">
+          <rect width="400" height="240" fill="url(#gd)" />
+          <circle cx="320" cy="52" r="40" fill="#fff6c9" opacity=".7" />
+          <circle cx="320" cy="52" r="20" fill="#fff3b0" />
+          <use class="cloud" href="#cl" x="24" y="26" width="140" height="58" />
+          <use class="cloud" href="#cl" x="200" y="74" width="100" height="42" />
+          <path d="M0 150Q80 108 170 140T400 118V240H0Z" fill="#9fdcae" />
+          <path d="M0 186Q110 150 230 180T400 164V240H0Z" fill="#6cc48f" />
+          <path d="M140 240Q215 205 265 176" stroke="#f3e3c3" stroke-width="13" fill="none" stroke-linecap="round" />
+          <g fill="#7b4dd6">
+            <circle cx="48" cy="204" r="3.4" />
+            <circle cx="112" cy="220" r="3.4" />
+            <circle cx="300" cy="206" r="3.4" />
+            <circle cx="352" cy="222" r="3.4" />
+            <circle cx="330" cy="186" r="3.4" />
+          </g>
+          <g fill="#6ec3f4">
+            <circle cx="78" cy="212" r="3.4" />
+            <circle cx="36" cy="226" r="3.4" />
+            <circle cx="278" cy="222" r="3.4" />
+            <circle cx="372" cy="200" r="3.4" />
+          </g>
+          <g fill="#fff">
+            <circle cx="96" cy="200" r="3.4" />
+            <circle cx="320" cy="214" r="3.4" />
+            <circle cx="60" cy="190" r="3.4" />
+          </g>
+          <use href="#sf" x="14" y="132" width="28" height="45" />
+          <use href="#sf" x="334" y="124" width="30" height="48" />
+          <use href="#rs" x="362" y="156" width="20" height="32" />
+          <use href="#ly" x="64" y="178" width="22" height="35" />
+          <use href="#ly" x="116" y="186" width="20" height="32" />
+          <use class="us" href="#us" x="176" y="164" width="40" height="55" />
+        </svg>
+        <div class="txt">
+          <h3>Where it starts</h3>
+          <p>Purple flowers, a sky-blue morning, and you walking next to me. This is my favorite place to begin.</p>
+
+        </div>
+      </article>
+      <div class="leg" aria-hidden="true"></div>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="The snack stop">
+          <rect width="400" height="240" fill="url(#gd)" />
+          <use class="cloud" href="#cl" x="260" y="16" width="120" height="50" />
+          <path d="M0 140Q100 110 200 135T400 120V240H0Z" fill="#9fdcae" />
+          <rect x="236" y="118" width="104" height="74" fill="#f7e6cc" />
+          <path d="M226 122L288 72 350 122Z" fill="#7b4dd6" />
+          <rect x="318" y="84" width="12" height="26" fill="#a98bef" />
+          <rect x="276" y="150" width="24" height="42" rx="12" fill="#8a5a44" />
+          <rect x="248" y="134" width="18" height="18" rx="3" fill="#ffd166" />
+          <rect x="310" y="134" width="18" height="18" rx="3" fill="#ffd166" />
+          <path d="M0 190Q120 165 250 188T400 180V240H0Z" fill="#6cc48f" />
+          <g fill="#ffd166">
+            <circle cx="196" cy="128" r="6" />
+            <circle cx="168" cy="122" r="6" />
+            <circle cx="224" cy="124" r="6" />
+          </g>
+          <path d="M168 128H224" stroke="#8a5a44" stroke-width="1.5" />
+          <rect x="60" y="188" width="86" height="7" rx="3" fill="#8a5a44" />
+          <path d="M70 195v26M136 195v26" stroke="#8a5a44" stroke-width="5" />
+          <g fill="#fff">
+            <path d="M72 188a11 8 0 0 1 22 0Z" />
+            <path d="M104 188a11 8 0 0 1 22 0Z" />
+          </g>
+          <g class="steam" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M83 178q-5-7 0-12t0-8" />
+            <path d="M115 178q-5-7 0-12t0-8" />
+          </g>
+          <use href="#rs" x="14" y="150" width="22" height="35" />
+          <use href="#ly" x="40" y="178" width="20" height="32" />
+          <use href="#sf" x="356" y="128" width="28" height="45" />
+          <use class="us" href="#us" x="150" y="168" width="40" height="55" />
+        </svg>
+        <div class="txt">
+          <h3>The snack stop</h3>
+          <p>Somewhere along the way, we'd find a little place filled with our favorite food, order far more than we
+            could possibly finish, and laugh about absolutely nothing. I'd steal a bite from your plate, pretend yours
+            tastes better, and save the last little piece just for you. Because love isn't always about grand gestures.
+            Sometimes, it's simply remembering what you love, asking if you've eaten, and making sure you get the last
+            bite.</p>
+
+        </div>
+      </article>
+      <div class="leg" aria-hidden="true"></div>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="Her flowers">
+          <rect width="400" height="240" fill="url(#gd)" />
+          <circle cx="60" cy="48" r="32" fill="#fff6c9" opacity=".7" />
+          <circle cx="60" cy="48" r="16" fill="#fff3b0" />
+          <use class="cloud" href="#cl" x="200" y="22" width="130" height="54" />
+          <path d="M0 150Q90 118 190 144T400 124V240H0Z" fill="#9fdcae" />
+          <path d="M0 188Q120 160 250 186T400 176V240H0Z" fill="#6cc48f" />
+          <ellipse cx="88" cy="208" rx="84" ry="22" fill="#7cc6ee" />
+          <ellipse cx="88" cy="208" rx="84" ry="22" fill="none" stroke="#fff" stroke-width="2" opacity=".7" />
+          <use href="#lt" x="36" y="182" width="60" height="40" />
+          <use href="#lt" x="100" y="192" width="50" height="34" />
+          <use href="#ly" x="218" y="124" width="30" height="48" />
+          <use href="#rs" x="254" y="124" width="32" height="51" />
+          <use href="#sf" x="296" y="92" width="44" height="70" />
+          <use href="#sf" x="346" y="108" width="38" height="61" />
+          <path class="note" d="M150 96q-10-12-13 2q2 11 13 0q11 11 13 -2q-2-14-13 0Z" fill="#7b4dd6" />
+          <path class="note n3" d="M300 70q-8-10-10 2q2 9 10 0q9 9 10-2q-2-12-10 0Z" fill="#5aa9ee" />
+          <use class="us" href="#us" x="150" y="150" width="40" height="55" />
+        </svg>
+        <div class="txt">
+          <h3>Her flowers</h3>
+          <p>I'd bring you roses for the days you need reminding of how loved you are, lilies for the quiet days when
+            words aren't enough, sunflowers for the happiness you bring into my world, and lotuses for the beautiful
+            soul you carry within you. And if flowers could speak, I'd ask them to tell you all the little things I
+            sometimes struggle to put into words. But even an entire garden could never quite explain it, because my
+            favorite flower has always been the girl standing in front of me.</p>
+
+        </div>
+      </article>
+      <div class="leg" aria-hidden="true"></div>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="Game on">
+          <rect width="400" height="240" fill="url(#gd)" />
+          <circle cx="330" cy="46" r="28" fill="#fff6c9" opacity=".75" />
+          <use class="cloud" href="#cl" x="40" y="24" width="130" height="54" />
+          <path d="M0 150Q100 120 200 146T400 130V240H0Z" fill="#9fdcae" />
+          <rect y="198" width="400" height="42" fill="#6cc48f" />
+          <path d="M20 232H380M50 206H350" stroke="#fff" stroke-width="2" opacity=".7" fill="none" />
+          <rect x="168" y="144" width="4" height="64" fill="#2a1f4d" />
+          <rect x="228" y="144" width="4" height="64" fill="#2a1f4d" />
+          <g stroke="#fff" stroke-width=".9" opacity=".85">
+            <path d="M172 150V178" />
+            <path d="M178 150V178" />
+            <path d="M184 150V178" />
+            <path d="M190 150V178" />
+            <path d="M196 150V178" />
+            <path d="M202 150V178" />
+            <path d="M208 150V178" />
+            <path d="M214 150V178" />
+            <path d="M220 150V178" />
+            <path d="M226 150V178" />
+            <path d="M170 154H230" />
+            <path d="M170 160H230" />
+            <path d="M170 166H230" />
+            <path d="M170 172H230" />
+            <path d="M170 178H230" />
+          </g>
+          <rect x="168" y="146" width="64" height="4" rx="2" fill="#fff" />
+          <g transform="translate(120 150)">
+            <g class="sh">
+              <path d="M0 0l-5-10h10z" fill="#fff" stroke="#c9b8f5" stroke-width="1" transform="rotate(-30)" />
+              <circle r="3.2" fill="#ffd166" />
+            </g>
+          </g>
+          <use href="#pr" style="color:#5aa9ee" x="62" y="128" width="30" height="75" />
+          <path d="M90 158L110 138" stroke="#2a1f4d" stroke-width="2.5" />
+          <ellipse cx="114" cy="132" rx="7" ry="9" fill="none" stroke="#2a1f4d" stroke-width="2"
+            transform="rotate(35 114 132)" />
+          <use href="#pr" style="color:#7b4dd6" x="306" y="128" width="30" height="75" />
+          <path d="M308 158L290 138" stroke="#2a1f4d" stroke-width="2.5" />
+          <ellipse cx="286" cy="132" rx="7" ry="9" fill="none" stroke="#2a1f4d" stroke-width="2"
+            transform="rotate(-35 286 132)" />
+          <path d="M336 140q10 6 6 22" stroke="#2a1f4d" stroke-width="3" fill="none" stroke-linecap="round" />
+        </svg>
+        <div class="txt">
+          <h3>Game on</h3>
+          <p>A sunny afternoon, a racket in your hand, a shuttle flying between us, and that adorable smile you wear
+            every time you win. I'd challenge you again and again, even if I knew exactly how the match would end.
+            Because honestly, the score doesn't matter half as much as the sparkle in your eyes when you celebrate. And
+            if losing means getting to see that smile one more time, well, I think I've already won.</p>
+
+        </div>
+      </article>
+      <div class="leg" aria-hidden="true"></div>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="Songs on the road">
+          <rect width="400" height="240" fill="url(#gd)" />
+          <use class="cloud" href="#cl" x="40" y="30" width="120" height="50" />
+          <use class="cloud" href="#cl" x="230" y="48" width="140" height="58" />
+          <path d="M0 140Q100 96 210 132T400 108V240H0Z" fill="#a5dfb4" />
+          <path d="M0 190Q120 150 240 184T400 168V240H0Z" fill="#6cc48f" />
+          <path d="M-10 236Q120 190 190 202T410 170" stroke="#f3e3c3" stroke-width="22" fill="none" />
+          <path d="M-10 236Q120 190 190 202T410 170" stroke="#fff" stroke-width="2" stroke-dasharray="8 9" fill="none"
+            opacity=".8" />
+          <path d="M30 80q40-14 80 0M250 110q40-14 80 0" stroke="#fff" stroke-width="3" fill="none"
+            stroke-linecap="round" opacity=".7" />
+          <g font-size="26" fill="#7b4dd6"><text class="note" x="90" y="130">&#9834;</text><text class="note n2" x="170"
+              y="100" fill="#5aa9ee">&#9835;</text><text class="note n3" x="260" y="136">&#9834;</text><text
+              class="note n4" x="330" y="96" fill="#5aa9ee">&#9835;</text></g>
+          <use href="#sf" x="20" y="130" width="26" height="42" />
+          <use href="#sf" x="352" y="118" width="28" height="45" />
+          <use href="#rs" x="300" y="176" width="20" height="32" />
+          <use href="#ly" x="46" y="182" width="22" height="35" />
+          <use class="us" href="#us" x="150" y="150" width="40" height="55" />
+        </svg>
+        <div class="txt">
+          <h3>Songs on the road</h3>
+          <p>Your playlist plays and the whole road sings along.</p>
+
+          <span class="pill" id="np">&#9834;
+            Masakali</span>
+        </div>
+      </article>
+      <div class="leg" aria-hidden="true"></div>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="Dance with me">
+          <rect width="400" height="240" fill="url(#gv)" />
+          <g fill="#fff">
+            <circle cx="40" cy="90" r="1.6" />
+            <circle cx="360" cy="100" r="1.6" />
+            <circle cx="90" cy="130" r="1.4" />
+            <circle cx="330" cy="140" r="1.4" />
+          </g>
+          <path d="M0 40Q100 80 200 40T400 40" stroke="#2a1f4d" stroke-width="2" fill="none" />
+          <circle class="ff " cx="0" cy="40" r="4" fill="#ffd166" />
+          <circle class="ff f2" cx="50" cy="55" r="4" fill="#ffd166" />
+          <circle class="ff f3" cx="100" cy="60" r="4" fill="#ffd166" />
+          <circle class="ff " cx="150" cy="55" r="4" fill="#ffd166" />
+          <circle class="ff f2" cx="200" cy="40" r="4" fill="#ffd166" />
+          <circle class="ff " cx="250" cy="25" r="4" fill="#ffd166" />
+          <circle class="ff f2" cx="300" cy="20" r="4" fill="#ffd166" />
+          <circle class="ff f3" cx="350" cy="25" r="4" fill="#ffd166" />
+          <circle class="ff " cx="400" cy="40" r="4" fill="#ffd166" />
+          <path d="M200 40L110 208H290Z" fill="#fff" opacity=".12" />
+          <ellipse cx="200" cy="206" rx="150" ry="22" fill="#a98bef" opacity=".6" />
+          <g font-size="26"><text class="note" x="70" y="140" fill="#ffd166">&#9834;</text><text class="note n2" x="300"
+              y="120" fill="#fff">&#9835;</text><text class="note n3" x="110" y="90" fill="#ff7eb6">&#9829;</text><text
+              class="note n4" x="280" y="80" fill="#ff7eb6">&#9829;</text></g>
+          <g class="sway">
+            <use href="#us" x="168" y="138" width="46" height="63" />
+          </g>
+        </svg>
+        <div class="txt">
+          <h3>Dance with me</h3>
+          <p>Imagine a quiet evening, fairy lights glowing like little stars, a soft song playing somewhere in the
+            background, and your hand resting in mine. We don't need perfect steps or a beautiful dance floor. We can
+            sway, laugh when we get it wrong, and dance like the rest of the world has disappeared. And when you smile
+            up at me, I think I'll understand why some moments are too beautiful to rush through.</p>
+
+        </div>
+      </article>
+      <div class="leg" aria-hidden="true"></div>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="The mountain top">
+          <rect width="400" height="240" fill="url(#gm)" />
+          <circle cx="62" cy="48" r="24" fill="#fff" opacity=".85" />
+          <path d="M-10 200L90 70 180 200Z" fill="#8e6fe0" />
+          <path d="M150 200L260 40 370 200Z" fill="#7a55d2" />
+          <path d="M260 40L232 82 250 76 262 92 274 76 292 84Z" fill="#fff" />
+          <path d="M90 70L72 98 88 92 98 104 110 94Z" fill="#fff" />
+          <use class="cloud" href="#cl" x="-20" y="150" width="190" height="78" />
+          <use class="cloud" href="#cl" x="200" y="140" width="210" height="86" />
+          <path d="M0 240V196Q90 170 190 188T400 176V240Z" fill="#3e2a85" />
+          <use href="#ly" x="30" y="150" width="26" height="42" />
+          <use href="#rs" x="318" y="152" width="24" height="38" />
+          <use href="#sf" x="352" y="140" width="26" height="42" />
+          <use class="us" href="#us" x="168" y="150" width="40" height="55" />
+        </svg>
+        <div class="txt">
+          <h3>The mountain top</h3>
+          <p>When we finally reach the top, I want us to sit quietly for a while, watching the clouds drift past and
+            feeling proud that we made it together. And whenever life gives us difficult climbs beyond those mountains,
+            I hope we remember how good it feels to keep going and have someone beside us.</p>
+
+        </div>
+      </article>
+      <div class="leg" aria-hidden="true"></div>
+      <article class="chap"><svg viewBox="0 0 400 240" role="img" aria-label="Home, someday">
+          <rect width="400" height="240" fill="url(#gv)" />
+          <g fill="#fff">
+            <circle cx="40" cy="30" r="1.8" />
+            <circle cx="110" cy="56" r="1.4" />
+            <circle cx="210" cy="24" r="1.8" />
+            <circle cx="300" cy="50" r="1.4" />
+            <circle cx="370" cy="26" r="1.8" />
+          </g>
+          <circle cx="330" cy="70" r="22" fill="#fff8e1" />
+          <path d="M0 240V170Q120 120 260 160T400 150V240Z" fill="#3e2a85" />
+          <rect x="262" y="112" width="70" height="52" fill="#f7e6cc" />
+          <path d="M254 116L297 78 340 116Z" fill="#7b4dd6" />
+          <rect x="316" y="82" width="9" height="20" fill="#a98bef" />
+          <rect x="274" y="126" width="16" height="16" rx="2" fill="#ffd166" />
+          <rect x="302" y="132" width="16" height="32" rx="8" fill="#8a5a44" />
+          <g fill="#fff3b0">
+            <circle class="ff" cx="60" cy="150" r="2.6" />
+            <circle class="ff f2" cx="130" cy="130" r="2.6" />
+            <circle class="ff f3" cx="210" cy="152" r="2.6" />
+            <circle class="ff" cx="240" cy="118" r="2.6" />
+            <circle class="ff f2" cx="30" cy="186" r="2.6" />
+          </g>
+          <ellipse cx="290" cy="214" rx="82" ry="17" fill="#6d47c9" />
+          <ellipse cx="290" cy="214" rx="82" ry="17" fill="none" stroke="#f2a6d6" stroke-width="1.5" opacity=".7" />
+          <use href="#lt" x="246" y="194" width="46" height="31" />
+          <use href="#lt" x="302" y="200" width="38" height="25" />
+          <use href="#rs" x="20" y="150" width="22" height="35" />
+          <use href="#ly" x="60" y="172" width="20" height="32" />
+          <use class="us" href="#us" x="120" y="146" width="40" height="55" />
+        </svg>
+        <div class="txt">
+          <h3>Home, someday</h3>
+          <p>And someday, when our hair has silvered and our steps have grown a little slower, I imagine a tiny home
+            resting on a hill, with flowers outside the window and warm yellow lights glowing through the evening. Maybe
+            we'll still argue about what to eat, laugh at the same silly jokes, and listen to those old songs that carry
+            pieces of our younger selves. Maybe I'll still save you the last bite, and you'll still smile when you win
+            our little games.
+
+            We won't need mountain views or perfect sunsets anymore. The mornings will be ordinary, the days will be
+            simple, and the years will have passed like pages in a well-loved book. But I hope we'll look at each other
+            and find the same warmth we found at the very beginning.
+
+            Because if there's one place I'd choose to arrive at after every road, every season, and every version of
+            ourselves, it's a life where we still get to make each other smile.</p>
+
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Your playlist</h2>
+      <p class="lead">Fourteen songs that sound like you. Tap the button and I’ll pick one for today.</p>
+      <button class="pick" id="pick">Pick a song for Dhanashri</button>
+      <div class="now" id="now" aria-live="polite"></div>
+      <ul class="songs" id="songs"></ul>
+    </section>
+
+    <section>
+      <h2>The eating department</h2>
+      <div class="food">
+        <p style="margin:0">Official rule: wherever we go, the first question is <b>“what are we eating?”</b> and the
+          second question is <b>“what are we eating next?”</b> I will happily carry the bags, the snacks and the second
+          plate.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Our someday trips</h2>
+      <p class="lead">We decided to travel together, so I’m keeping a list.</p>
+      <div class="trail">
+        <p><b>A mountain morning.</b> Early, cold, chai in hand, the whole valley turning purple and then sky blue.</p>
+        <p><b>A road with no hurry.</b> Your songs on the speaker, windows down, stopping wherever the food smells good.
+        </p>
+        <p><b>Places we haven’t named yet.</b> Anywhere is fine, as long as it is with you.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Open when&hellip;</h2>
+      <p class="lead">Little love letters. Tap an envelope when you need one. Ughda, Dhanashri.</p>
+      <div class="env"><button class="eb" aria-expanded="false"><span class="ebody"><span class="flap"></span><span
+              class="seal">&#128156;</span><span class="lbl">Open when you miss me</span></span></button>
+        <div class="lw">
+          <div>
+            <div class="paper">
+              <p>I wish I could be there every time you miss me, just to hug you a little tighter and remind you how
+                much you mean to me. I wish I could keep you close for a little longer after every goodbye, because
+                sometimes even a whole day together doesn't feel like enough. And if you ever wonder whether I miss you
+                too, just know that there are little moments when something reminds me of you, and all I wish for is to
+                tell you about it. You have become such a special part of my life, and no matter how many miles or days
+                come between us, I'm always going to be grateful that I have you. ♡</p>
+
+              <p class="sig">Mahesh &#128156;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="env"><button class="eb" aria-expanded="false"><span class="ebody"><span class="flap"></span><span
+              class="seal">&#128156;</span><span class="lbl">Open when you are hungry</span></span></button>
+        <div class="lw">
+          <div>
+            <div class="paper">
+              <p>Imagine us walking down a little street in the evening, finding a cute café, and ordering all the food
+                we've been craving. I'd steal a bite from your plate, let you steal from mine, and save the last piece
+                of your favorite dessert just for you. And on the way home, I'd stop at your favorite shop to get you
+                one more little treat, just to see that happy smile of yours. Because honestly, feeding you and watching
+                you enjoy the little things might become one of my favorite ways to love you. ♡</p>
+
+              <p class="sig">Mahesh &#128156;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="env"><button class="eb" aria-expanded="false"><span class="ebody"><span class="flap"></span><span
+              class="seal">&#128156;</span><span class="lbl">Open when you win a match</span></span></button>
+        <div class="lw">
+          <div>
+            <div class="paper">
+              <p>Look at you, my little champion! You win the match, flash that beautiful smile, and somehow make me
+                fall for you all over again. I hope you always play with that fire in your heart and never stop being
+                that happy girl who makes even the smallest victories feel magical. Keep winning, my girl. I'll always
+                be your loudest cheerleader, clapping for you with the proudest heart. And remember, champion of the
+                court, you're already the winner of my heart. 💗
+              </p>
+
+              <p class="sig">Mahesh &#128156;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="env"><button class="eb" aria-expanded="false"><span class="ebody"><span class="flap"></span><span
+              class="seal">&#128156;</span><span class="lbl">Open when you want to dance</span></span></button>
+        <div class="lw">
+          <div>
+            <div class="paper">
+              <p>Put on your favorite song and dance like the whole world belongs to you. I'll hold your hand, follow
+                your every step, and laugh with you when we get them all wrong. And if the music ever stops, I'll still
+                be right there, swaying with you, because honestly, my favorite part will never be the dance. It will
+                always be you. ♡</p>
+
+              <p class="sig">Mahesh &#128156;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="env"><button class="eb" aria-expanded="false"><span class="ebody"><span class="flap"></span><span
+              class="seal">&#128156;</span><span class="lbl">Open when you feel low</span></span></button>
+        <div class="lw">
+          <div>
+            <div class="paper">
+              <p>On the days you feel low, remember you are the brightest star in my whole sky. Even when you cannot
+                see your own light, I hope you know that the world feels a little more beautiful to me because you are
+                in it. If I could, I'd hold your hand through every difficult moment and remind you that you don't have
+                to be strong all the time. Until then, imagine me sitting right beside you, telling you that you are
+                loved, you are enough, and you never have to face everything alone. I am right here. ♡</p>
+
+              <p class="sig">Mahesh &#128156;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="env"><button class="eb" aria-expanded="false"><span class="ebody"><span class="flap"></span><span
+              class="seal">&#128156;</span><span class="lbl">Open when you cannot sleep</span></span></button>
+        <div class="lw">
+          <div>
+            <div class="paper">
+              <p>Close your eyes and imagine a little mountain under a sky full of stars, with a quiet lotus pond
+                shining in the moonlight. I'm sitting there beside you, saving your favorite spot, waiting for you to
+                come and tell me everything on your mind. In this little dream, there's no sadness, no worries, and no
+                need to pretend you're okay. Just you and me, a soft breeze, and all the time in the world. So come find
+                me in your dreams, okay? I'll always save a little place for you beside me. ♡</p>
+
+              <p class="sig">Mahesh &#128156;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="old">
+      <h2>Young to old</h2>
+      <p>Dhanashri, I want to spend my whole life with you. Every trip, every song, every meal, from now until we are
+        old.</p>
+      <div class="ages"><span>Young</span><span>Grown up</span><span>Grey and still laughing</span></div>
+      <p style="margin:0">Always yours,<br><b style="font-family:Caveat,cursive;font-size:36px">Mahesh</b></p>
+    </section>
+    <section class="ask" id="ask">
+      <div class="big" aria-hidden="true">💜</div>
+      <div id="q">
+        <h2>Dhanashri, can you spend your whole life with me?</h2>
+        <p class="mr">Mazyasobat aayushyabhar rahashil ka?</p>
+        <div class="btns"><button id="yes">Ho! Yesss 💙</button><button id="no">Nahi</button></div>
+      </div>
+      <div id="win">
+        <div class="big" aria-hidden="true">🥹💜</div>
+        <h2>She said yes!</h2>
+
+        <p>Thank you, Dhanashri. I promise you mountains, songs, second plates of food and a very long forever. Young to
+          old, always with you.</p>
+        <p style="font-family:Caveat,cursive;font-size:34px;margin:0;color:var(--purple)">Mahesh 💜</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>made with so much love <span class="heart" id="heart" role="button" tabindex="0"
+      aria-label="Send a heart">💜</span></footer>
+
+  <script>
+    var songs = ["Rang He Nave Nave", "Masakali", "Don Don Don", "Hareya", "Perfect", "Yeno Yeno Aagide", "Taare Ginn", "Ishq Bulaava", "Tera Rasta Main Chodu Na", "Be Intehaan", "Mere Naam Tu", "Zehnaseeb", "Itni Si Baat Hain", "Tu Thodi Der Aur Ther Jaa"];
+    var ul = document.getElementById("songs"), now = document.getElementById("now"), last = -1;
+    songs.forEach(function (s, i) {
+      var li = document.createElement("li"); li.id = "s" + i;
+      li.innerHTML = '<span></span><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=' + encodeURIComponent(s + " song") + '">Listen</a>';
+      li.firstChild.textContent = s; ul.appendChild(li)
+    });
+    document.getElementById("pick").onclick = function () {
+      var i; do { i = Math.floor(Math.random() * songs.length) } while (i === last); last = i;
+      document.querySelectorAll("li.hit").forEach(function (e) { e.classList.remove("hit") });
+      var li = document.getElementById("s" + i); li.classList.add("hit"); li.scrollIntoView({ block: "center", behavior: "smooth" });
+      now.textContent = "Today’s song: " + songs[i] + " 💜"
+    };
+    var h = document.getElementById("heart");
+    function pop() { h.textContent = ["💙", "💜", "🩵", "💜"][Math.floor(Math.random() * 4)] }
+    h.onclick = pop; h.onkeydown = function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pop() } };
+    var fl = document.getElementById("floaters"), em = ["💜", "💙", "🪷", "🌻", "🌹", "🏸", "💃", "✨"];
+    for (var k = 0; k < 16; k++) {
+      var f = document.createElement("span"); f.className = "fl"; f.textContent = em[k % em.length];
+      f.style.left = (Math.random() * 94) + "%"; f.style.fontSize = (16 + Math.random() * 22) + "px";
+      f.style.animationDuration = (7 + Math.random() * 7) + "s"; f.style.animationDelay = (-Math.random() * 12) + "s"; fl.appendChild(f)
+    }
+    var no = document.getElementById("no"), yes = document.getElementById("yes"), tries = 0;
+    var lines = ["Nahi", "Khara ka?", "Vichar kar 🥺", "Thinkkk", "Pleaseee", "Pakdun dakhav", "Ho mhan na 💜"];
+    function dodge(e) {
+      if (e) { e.preventDefault() }
+      tries++; no.textContent = lines[tries % lines.length];
+      var w = no.offsetWidth, hh = no.offsetHeight;
+      var A = document.getElementById("ask"); no.style.position = "absolute";
+      no.style.left = (8 + Math.random() * Math.max(1, A.clientWidth - w - 16)) + "px";
+      no.style.top = (A.clientHeight * .42 + Math.random() * Math.max(1, A.clientHeight * .58 - hh - 12)) + "px";
+      yes.style.fontSize = Math.min(22 + tries * 3, 46) + "px"; yes.style.padding = "14px " + Math.min(34 + tries * 5, 70) + "px"
+    }
+    ["pointerenter", "pointerdown", "touchstart", "click", "focus"].forEach(function (t) { no.addEventListener(t, dodge) });
+    yes.onclick = function () {
+      document.getElementById("q").style.display = "none"; no.style.display = "none";
+      document.getElementById("win").style.display = "block";
+      document.querySelector(".ask .big").style.display = "none";
+      for (var k = 0; k < 45; k++) {
+        var s = document.createElement("span"); s.className = "fall"; s.textContent = em[k % 4];
+        s.style.left = (Math.random() * 96) + "vw"; s.style.fontSize = (18 + Math.random() * 26) + "px";
+        s.style.animationDuration = (3 + Math.random() * 3) + "s"; s.style.animationDelay = (Math.random() * 2) + "s";
+        document.body.appendChild(s); setTimeout(function (x) { x.remove() }, 9000, s)
+      }
+      document.getElementById("win").scrollIntoView({ block: "center", behavior: "smooth" })
+    };
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("vis") } }) }, { threshold: .35 });
+    document.querySelectorAll(".chap").forEach(function (c) { io.observe(c) });
+    var np = document.getElementById("np"), ni = 0;
+    setInterval(function () { ni = (ni + 1) % songs.length; np.textContent = "\u266A " + songs[ni] }, 3000);
+    document.querySelectorAll(".eb").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var e = b.parentNode, o = e.classList.toggle("open"); b.setAttribute("aria-expanded", o);
+        if (o) { for (var i = 0; i < 8; i++) { var h = document.createElement("span"); h.className = "bh"; h.textContent = ["\u{1F49C}", "\u{1F499}", "\u{1F338}"][i % 3]; h.style.setProperty("--dx", (Math.random() * 160 - 80) + "px"); h.style.setProperty("--dy", (-30 - Math.random() * 70) + "px"); e.appendChild(h); setTimeout(function (x) { x.remove() }, 1400, h) } }
+      })
+    });
+    var fe = document.getElementById("fenv"), fa = document.getElementById("fans"), fm = document.getElementById("fmsg"), fq = document.getElementById("quiz"), ft = 0;
+    function fall() { for (var k = 0; k < 40; k++) { var x = document.createElement("span"); x.className = "fall"; x.textContent = ["\u2744\uFE0F", "\u{1F49C}", "\u2744\uFE0F", "\u{1F499}"][k % 4]; x.style.left = (Math.random() * 96) + "vw"; x.style.fontSize = (16 + Math.random() * 22) + "px"; x.style.animationDuration = (4 + Math.random() * 4) + "s"; x.style.animationDelay = (Math.random() * 2) + "s"; document.body.appendChild(x); setTimeout(function (y) { y.remove() }, 10000, x) } }
+    function tryOpen() {
+      var v = fa.value.toLowerCase().replace(/[^a-z]/g, "");
+      if (v === "finland" || v === "suomi") { fe.classList.add("open"); fq.classList.add("done"); fm.textContent = "Finland! Our favourite place, our dream. \u2728"; fe.querySelector(".seal").textContent = "\u{1F49C}"; fall(); setTimeout(function () { fe.querySelector(".paper").scrollIntoView({ block: "center", behavior: "smooth" }) }, 700) }
+      else { ft++; fe.classList.remove("shake"); void fe.offsetWidth; fe.classList.add("shake"); fm.textContent = ft < 2 ? "Hmm, not quite. Try again \u{1F97A}" : "Hint: snow, a thousand lakes and the northern lights \u2744\uFE0F" }
+    }
+    document.getElementById("fgo").onclick = tryOpen; fa.addEventListener("keydown", function (e) { if (e.key === "Enter") { tryOpen() } });
+    document.getElementById("peek").addEventListener("click", function (e) { e.preventDefault(); document.getElementById("letter").scrollIntoView({ behavior: "smooth" }) });
+  </script>
+</body>
+
+</html>
